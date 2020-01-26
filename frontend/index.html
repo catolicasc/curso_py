@@ -20,20 +20,40 @@
   <body>
     <div class="container">
       <div class="row">
-        <label for="">Evento</label>
-        <input type="text" id="evento" />
-      </div>
+        <div>
+          <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <select class="form-control form-control-md" id="tipo">
+                <option disabled>Selecione uma opção</option>
+                <option value="codifica">Codificar</option>
+                <option value="decodifica">Decodificar</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="str">Valor</label>
+            <input
+              type="text"
+              class="form-control"
+              id="str"
+              placeholder="Informe o valor"
+            />
+          </div>
+          <button type="submit" id="acionar" class="btn btn-primary btn-block">
+            Enviar
+          </button>
+        </form>
 
-      <div class="row">
-        <label for="">Str</label>
-        <input type="text" id="str" />
+        <div class="form-group">
+            <label for="str">Resultado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="resultado"
+              readonly
+              placeholder="Informe o valor"
+            />
+          </div>
       </div>
-
-      <div>
-        <button id="acionar">Acionar evento</button>
-      </div>
-
-      <div>Resultado <span id="resultado"></span></div>
     </div>
 
     <script
@@ -44,12 +64,13 @@
 
     <script>
       $('#acionar').click(() => {
-        $.get(`http://localhost:5000/rota?mourse=${$('#str').val()}&tipo=${$('#evento').val()}`, function(
-          data
-        ) {
-          $('#resultado').text(data.api_response);
-          console.log(data)
-        });
+        $.get(
+          `http://localhost:5000/rota?mourse=${$('#str').val()}&tipo=${$('#tipo').val()}`,
+          function(data) {
+            $('#resultado').val(data.api_response);
+            console.log(data);
+          }
+        );
       });
     </script>
   </body>
