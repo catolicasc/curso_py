@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\Luiz Almeida Júnior\\Anaconda3\\python.exe"
+    "python.pythonPath": "C:\\Users\\Luiz Almeida Júnior\\Anaconda3\\python.exe",
+    "liveServer.settings.multiRootWorkspaceName": "flask"
 }
